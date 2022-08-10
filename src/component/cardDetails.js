@@ -23,9 +23,9 @@ function CardDetails({url, name}) {
       <Link to={`/pokemon/${name}`} style={{ textDecoration: 'none' }}>
         <CardContent  >
       <Avatar
-      //  alt={name} 
-       src ={url}
-      //  src="https://cdn.vox-cdn.com/thumbor/FHOKTiKEBNnFid9JYeRjAR4taqA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13050321/pikachu_review_lead.jpg"
+       alt={name} 
+      //  src ={url}
+        src="https://cdn.vox-cdn.com/thumbor/FHOKTiKEBNnFid9JYeRjAR4taqA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13050321/pikachu_review_lead.jpg"
         sx={{ width: "134px",
           height: "143px",
           margin: "0px 43px",
