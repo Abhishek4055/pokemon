@@ -29,7 +29,7 @@ function Pokemon() {
         boxShadow: 12,
         height: "18rem",
         // width: "15rem",
-        background: "LightSteelBlue",
+        background: "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
         borderRadius: "5%",
         alignItems: "center",
       }}
