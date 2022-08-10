@@ -1,26 +1,24 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch } from "react-redux";
-import {  getList } from "../redux/reducer";
-
-
+import { getList } from "../redux/reducer";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25)
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
-    width: "auto"
-  }
+    width: "auto",
+  },
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -30,7 +28,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   pointerEvents: "none",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -43,35 +41,32 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up("sm")]: {
       width: "20ch",
       "&:focus": {
-        width: "20ch"
-      }
-    }
-  }
+        width: "20ch",
+      },
+    },
+  },
 }));
 const SearchBar = () => {
   const [name, setName] = useState("");
-  const dispatch =useDispatch()
+  const dispatch = useDispatch();
 
-   
-  useEffect(()=>{
-     dispatch(getList(name))
-  },[dispatch,name])
+  useEffect(() => {
+    dispatch(getList(name));
+  }, [dispatch, name]);
 
-
-   return (
-     
-       <Toolbar>
-        <Search>
-          <SearchIconWrapper >
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Search>
-      </Toolbar>
-     
-)}
-export default SearchBar
+  return (
+    <Toolbar>
+      <Search>
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder="Search…"
+          inputProps={{ "aria-label": "search" }}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </Search>
+    </Toolbar>
+  );
+};
+export default SearchBar;

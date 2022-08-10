@@ -1,32 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-export const pokemonList =createSlice({
-    name:'pokemonList',
-    initialState: {
-        pokemonList : {},
-        pokemon:{},       
-    },
-reducers : {
+export const pokemonList = createSlice({
+  name: "pokemonList",
+  initialState: {
+    pokemonList: {},
+    pokemon: {},
+  },
+  reducers: {
     // action
 
-    getList:(name)=>{
-       return  name
+    getList: (name) => {
+      return name;
     },
-    setListSucess(state,action){
-       state.pokemonList = action.payload; 
+    setListSuccess(state, action) {
+      state.pokemonList = action.payload;
     },
-    getPokemon:(name)=>{    
-       return name
-     },
-    setPokemon(state,action){
+    getPokemon: (name) => {
+      return name;
+    },
+    setPokemon(state, action) {
       state.pokemon = action.payload;
-     },
-    }
-}
- 
-)
-export const {getList,setListSucess,getPokemon,setPokemon}= pokemonList.actions
-export const getAllPokemonList =state=>state.pokemonList.pokemonList
-export const getPokemonItem =state=>state.pokemonList.pokemon
-export default pokemonList.reducer
+    },
+  },
+});
+export const {
+  getList,
+  setListSuccess: setListSuccess,
+  getPokemon,
+  setPokemon,
+} = pokemonList.actions;
+export const getAllPokemonList = (state) => state.pokemonList.pokemonList;
+export const getPokemonItem = (state) => state.pokemonList.pokemon;
+export default pokemonList.reducer;

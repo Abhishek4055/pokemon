@@ -1,8 +1,6 @@
-import {all } from 'redux-saga/effects'
-import { fetchPokemonSaga } from './saga'
+import { all } from "redux-saga/effects";
+import { fetchPokemonSaga } from "./saga";
 
-
-
-export default  function* rootSaga (){
-    yield all([...fetchPokemonSaga])
+export default function* rootSaga() {
+  yield all([...fetchPokemonSaga]);
 }
