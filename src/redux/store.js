@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "@redux-saga/core";
 import  pokemonListReducer  from "./reducer";
-import fetchDataSaga from "./saga";
+import rootSaga from "./rootSga";
 
 
 
@@ -13,6 +13,6 @@ const store =configureStore({
     },
     middleware:[saga]
 })
-saga.run(fetchDataSaga)
+saga.run(rootSaga)
 
 export default store;

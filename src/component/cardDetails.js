@@ -1,47 +1,43 @@
 import React from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
+import {Link} from 'react-router-dom'
 
 
 
 
-function CardDetails({url, name}) {
-    
+
+function CardDetails({url, name}) { 
   return (
-    <Card sx={{ maxWidth: 345, boxShadow: 8,
-    height: '20rem',
+    <Card sx={{ maxWidth: 345, 
+    boxShadow: 12,
+    height: '18rem',
+    // width: "15rem",
     background: "linear-gradient(to right, #c9ffbf, #ffafbd)" ,
     borderRadius:"5%",
+    alignItems:'center'
     }} 
      >
-      <CardActionArea>
-      <Stack direction="row" spacing={7}>
-      
+      <Link to={`/pokemon/${name}`} style={{ textDecoration: 'none' }}>
+        <CardContent  >
       <Avatar
-       alt={name} 
-       // src ={url}
-       src="https://cdn.vox-cdn.com/thumbor/FHOKTiKEBNnFid9JYeRjAR4taqA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13050321/pikachu_review_lead.jpg"
-        sx={{ width: "154px",
-          height: "173px",
-          margin: "31px 88px",
+      //  alt={name} 
+       src ={url}
+      //  src="https://cdn.vox-cdn.com/thumbor/FHOKTiKEBNnFid9JYeRjAR4taqA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13050321/pikachu_review_lead.jpg"
+        sx={{ width: "134px",
+          height: "143px",
+          margin: "0px 43px",
           fontSize: "76px",
-          
         }}
       />
-      
-       </Stack>
-        <CardContent >
-          <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center'
+          <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center', color:'Blick', marginTop: "10px"
           }}>
             {name}
           </Typography>
         </CardContent>
-      </CardActionArea>
+      </Link>
     </Card>
    )
 }

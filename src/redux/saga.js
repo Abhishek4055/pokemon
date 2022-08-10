@@ -1,16 +1,44 @@
 
-import {call,put,takeEvery} from 'redux-saga/effects'
-import { getListSucess } from './reducer'
+import {call,put,takeLatest, fork} from 'redux-saga/effects'
+import { getList, getPokemon, setListSucess, setPokemon } from './reducer'
+import { fetchPokemonList,fetchPokemon } from './service';
 
 function* getListItem(){
-    const list = yield call(()=> fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'))
-    const pokemonList= yield list.json()
-    yield put(getListSucess (pokemonList))
+    try{
+//  const list = payload;
+  const response = yield call(fetchPokemonList)
+  
+  if(response.status === 200){
+    yield put(setListSucess ({...response.data}))
+        }
+    }
+     catch(error){
+        console.log(error )
+    }
+}
+
+
+function* getItem(payload){
+    try{
+ const name = payload;
+  const response = yield call(fetchPokemon,name)
+    
+  if(response.status === 200){
+    yield put(setPokemon ({...response.data}))
+        }
+    }
+     catch(error){
+        console.log(error )
+    }
 }
 
 
 function* fetchDataSaga(){
-    yield takeEvery('pokemonList/getList', getListItem)
+    yield takeLatest(getList.type, getListItem)
 
 }
-export default fetchDataSaga;
+function* pokemonItem(){
+    yield takeLatest(getPokemon.type, getItem)
+
+}
+export const fetchPokemonSaga = [fork(fetchDataSaga), fork(pokemonItem)] ;

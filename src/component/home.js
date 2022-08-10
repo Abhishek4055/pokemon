@@ -1,38 +1,37 @@
 import React from 'react'
-import { Grid } from '@mui/material';
+import { CardActionArea, Grid } from '@mui/material';
 import { useEffect,useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
-import { getList } from '../redux/reducer';
+import {  useSelector,useDispatch} from 'react-redux';
 import CardDetails from './cardDetails';
+import { getAllPokemonList, getList } from '../redux/reducer';
+
 
 function Home() {
+  const [items,setItem] = useState([])
+  const dispatch = useDispatch()
+   const data = useSelector(getAllPokemonList)  
+   console.log('hoempage ')
 
-   const [items,setItem] = useState([])
-
-   const dispatch = useDispatch()
-   const data = useSelector((state)=>state.pokemonList.pokemonList)
- 
- 
- useEffect(()=>{
-  if(data){
-   setItem(data?.results)
-  }
- },[data])
- 
    useEffect(()=>{
-     dispatch(getList())
+    dispatch(getList())
    },[dispatch])
    
-  
-   
+   useEffect(()=>{
+    if(data){
+     setItem(data?.results)
+    }
+   },[data])
+
   return (
-   <Grid container  spacing={3} >
-   {items && items?.map((avatar,i) => {
+   <Grid container  spacing={12} >
+   {items && items?.map((avatar) => {
      return (
-           <Grid  key={i} item={true} xs={3} >
-               <CardDetails url={avatar.url} name={avatar.name} />
+           <Grid  key={avatar.name} item={true} xs={3} >
+               <CardActionArea >
+                  <CardDetails url={avatar.url} name={avatar.name} />
+               </CardActionArea>
             </Grid>
-   )
+          )
    }) }
    </Grid> 
   )
