@@ -8,12 +8,8 @@ function Layout(props) {
       <Grid item>
         <Header />
       </Grid>
-      <Grid item container style={{ marginTop: "80px" }}>
-        <Grid item xs={1} />
-        <Grid item xs={10}>
+      <Grid item container className="children-countainer" >
           {props.children}
-        </Grid>
-        <Grid item xs={1} />
       </Grid>
     </div>
   );

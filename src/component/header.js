@@ -15,7 +15,7 @@ function Header() {
         <Button color="inherit" onClick={() => navigation("/")}>
           <HomeIcon color="inherit" />
         </Button>
-        <Typography> This is Pokemon Header</Typography>
+        <Typography>  Pokemon Cards </Typography>
         <SearchBar />
       </Toolbar>
     </AppBar>

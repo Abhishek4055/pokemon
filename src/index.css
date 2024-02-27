@@ -6,10 +6,52 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.children-countainer {
+  /* margin-top: 70px */
+}
+
+.container {
+  margin-top: 70px;
+  padding: 10px;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-contaioner {
+  width: 155px;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  background: linear-gradient(to right, #317c47a6, #a1d1e4);
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3%;
+  margin: 15px;
+}
+
+
+
+.pokemon-logo {
+  background: ghostwhite;
+  border-radius: 50%;
+  width: 80%;
+  height: 59%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 14px;
+}
+.pokemon-name {
+  margin-top: 20px;
+  color: #000000;
+  font-size: larger;
+  font-style: italic;
 }

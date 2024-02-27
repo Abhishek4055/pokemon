@@ -10,8 +10,8 @@ import { Box } from "@mui/material";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <Box sx={{ background: "linear-gradient(to right, #c9ffbf, #ffafbd)" }}>
-      <App />
-    </Box>
+    {/* // <Box sx={{ background: "linear-gradient(to right, #c9ffbf, #ffafbd)" }}> */}
+      <App/>
+  {/* //   </Box> */}
   </Provider>
 );

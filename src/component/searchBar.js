@@ -52,7 +52,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     dispatch(getList(name));
-  }, [dispatch, name]);
+  }, [name]);
 
   return (
     <Toolbar>
